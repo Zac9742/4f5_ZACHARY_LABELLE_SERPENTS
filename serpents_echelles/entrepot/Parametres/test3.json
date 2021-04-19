@@ -1,0 +1,32 @@
+{
+
+	"nbJoueur": 4,
+	"joueurs": [
+		
+
+		{	
+			"nomJoueur":"Nicolas",
+			"couleur":"BLEU"	
+		},
+		
+		{
+			"nomJoueur":"Nassim",
+			"couleur":"VERT"
+		},
+		{
+			"nomJoueur":"Vincent",
+			"couleur":"JAUNE"
+		},
+		
+        {
+			"nomJoueur":"Andy",
+			"couleur":"ROUGE"
+		}
+		
+		],
+
+
+	"nbCases": 50,
+	
+	"quiCommence": "BLEU"
+}

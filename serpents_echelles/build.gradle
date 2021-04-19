@@ -1,0 +1,38 @@
+plugins {
+    id 'local-4f5-plugin'
+}
+
+task partie_locale (type: JavaExec) {
+    dependsOn 'classes'
+    main = 'serpents_echelles.pages.partie_locale.PagePartieLocale'
+    classpath = sourceSets.main.runtimeClasspath
+    jvmArgs('-Dfile.encoding=UTF-8', '-Duser.language=fr')
+}
+
+task parametres(type:JavaExec){
+	dependsOn 'classes'
+	main = 'serpents_echelles.pages.parametres.PageParametres'
+	classpath = sourceSets.main.runtimeClasspath
+	jvmArgs('-Dfile.encoding=UTF-8', '-Duser.language=fr')
+}
+
+task joueurGagnant (type:JavaExec) {
+    dependsOn 'classes'
+    main = 'serpents_echelles.pages.joueurGagnant.PageFinPartie'
+    classpath = sourceSets.main.runtimeClasspath
+    jvmArgs('-Dfile.encoding=UTF-8', '-Duser.language=fr')
+}
+
+task historique_parties (type:JavaExec) {
+	dependsOn 'classes'
+	main = 'serpents_echelles.pages.historique_parties.PageHistoriqueParties'
+	classpath = sourceSets.main.runtimeClasspath
+	jvmArgs('-Dfile.encoding=UTF-8', '-Duser.language=fr')
+}
+
+task accueil (type:JavaExec) {
+	dependsOn 'classes'
+	main = 'serpents_echelles.pages.client.MonClient'
+	classpath = sourceSets.main.runtimeClasspath
+	jvmArgs('-Dfile.encoding=UTF-8', '-Duser.language=fr')
+}

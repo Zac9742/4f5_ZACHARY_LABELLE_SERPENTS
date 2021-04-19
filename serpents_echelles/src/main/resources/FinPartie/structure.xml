@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" alignment="top_center"
+    fx:controller="serpents_echelles.pages.joueurGagnant.VueFinPartie">
+    
+   <children>
+      <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#268a44" height="400.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
+            <Button fx:id="boutonQuitter" layoutX="242.0" layoutY="317.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="106.1796875" text="Quitter">
+               <font>
+                  <Font size="24.0" />
+               </font></Button>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="75.0" layoutX="76.0" layoutY="101.0" stroke="BLACK" strokeType="INSIDE" width="449.0" />
+            <Text fx:id="txtPerdant" fill="#dadada" layoutX="120.0" layoutY="241.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Désolé &quot;Joueur 2&quot;, &quot;Joueur 3&quot;, &quot;Joueur 4&quot;, vous avez perdu..." wrappingWidth="359.80859375">
+               <font>
+                  <Font name="Arial" size="26.0" />
+               </font>
+            </Text>
+            <Text fx:id="txtSerpentsTouches" layoutX="116.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre de serpents touchées durant la partie: &quot;chiffre&quot;" wrappingWidth="369.3447265625">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Text fx:id="txtEchellesTouchees" layoutX="117.0" layoutY="161.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre d'échelles touchées durant la partie: &quot;chiffre&quot;" wrappingWidth="365.8447265625">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            
+            <Text fx:id="txtGagnant" fill="#dadada" layoutX="76.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bravo &quot;Joueur 1&quot;, vous avez gagné !">
+            
+               <font>
+                  <Font name="Arial" size="29.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+   </children>
+</VBox>    
+
+
+
+

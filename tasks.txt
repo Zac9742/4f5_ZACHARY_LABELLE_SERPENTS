@@ -1,0 +1,5 @@
+Page acceuil -> ./gradlew acceuil
+Page partie locale -> ./gradlew partie_locale
+Page parametres -> ./gradlew parametres
+Page joueurGagnant -> ./gradlew joueurGagnant
+Page historique -> ./gradlew historique_parties

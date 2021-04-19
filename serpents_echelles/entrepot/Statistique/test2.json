@@ -1,0 +1,43 @@
+{
+
+	"statistiquesJoueurs": 
+[
+	
+	{
+		"idJoueur": 1,
+		"nom": "Andy",
+		"gagnant": true,
+		"nbPartieGagnees" :1,
+		"nbPartiePerdues" : 2,
+		"nbSerpentsTouches" : 3,
+		"nbEchellesTouchees" : 4		
+	},{
+	
+		"idJoueur": 2,
+		"nom": "Nicolas",
+		"gagnant": false,
+		"nbPartieGagnees" :5,
+		"nbPartiePerdues" : 6,
+		"nbSerpentsTouches" : 7,
+		"nbEchellesTouchees" : 8		
+	},{
+		"idJoueur": 3,
+		"nom": "Vincent",
+		"gagnant": false,
+		"nbPartieGagnees" :11,
+		"nbPartiePerdues" : 2,
+		"nbSerpentsTouches" : 5,
+		"nbEchellesTouchees" : 11		
+	},{
+		"idJoueur": 4,
+		"nom": "Nassim",
+		"gagnant": false,
+		"nbPartieGagnees" :9,
+		"nbPartiePerdues" : 2,
+		"nbSerpentsTouches" : 14,
+		"nbEchellesTouchees" : 2		
+	}
+]
+		
+
+}

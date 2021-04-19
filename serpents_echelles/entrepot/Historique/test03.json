@@ -1,0 +1,76 @@
+{
+	"nbPartieArchive" : 4,
+	"partieArchive": 
+	[
+		{
+			"id": 0,
+			"nomGagnant": "nicolas",
+			"couleur": "VERT",
+			"dureePartie": 156,
+			"nbCoups": 157
+		},
+		{
+			"id": 1,
+			"nomGagnant": "nassim",
+			"couleur": "BLEU",
+			"dureePartie": 12,
+			"nbCoups": 10
+		},
+		{
+			"id": 2,
+			"nomGagnant": "andy",
+			"couleur": "ROUGE",
+			"dureePartie": 75,
+			"nbCoups": 124
+		},
+		{
+			"id": 3,
+			"nomGagnant": "vincent",
+			"couleur": "JAUNE",
+			"dureePartie": 57,
+			"nbCoups": 92
+		},
+		{
+			"id": 2,
+			"nomGagnant": "andy",
+			"couleur": "ROUGE",
+			"dureePartie": 75,
+			"nbCoups": 124
+		},
+		{
+			"id": 3,
+			"nomGagnant": "vincent",
+			"couleur": "JAUNE",
+			"dureePartie": 57,
+			"nbCoups": 92
+		},
+		{
+			"id": 2,
+			"nomGagnant": "andy",
+			"couleur": "ROUGE",
+			"dureePartie": 75,
+			"nbCoups": 124
+		},
+		{
+			"id": 3,
+			"nomGagnant": "vincent",
+			"couleur": "JAUNE",
+			"dureePartie": 57,
+			"nbCoups": 92
+		},
+		{
+			"id": 2,
+			"nomGagnant": "andy",
+			"couleur": "ROUGE",
+			"dureePartie": 75,
+			"nbCoups": 124
+		},
+		{
+			"id": 3,
+			"nomGagnant": "vincent",
+			"couleur": "JAUNE",
+			"dureePartie": 57,
+			"nbCoups": 92
+		}
+	]
+}

@@ -1,0 +1,27 @@
+{
+
+	"statistiquesJoueurs": 
+[
+	
+	{
+		"idJoueur": 1,
+		"nom": "Nicolas",
+		"gagnant": true,
+		"nbPartieGagnees" :16,
+		"nbPartiePerdues" : 8,
+		"nbSerpentsTouches" : 5,
+		"nbEchellesTouchees" : 3		
+	},{
+	
+		"idJoueur": 2,
+		"nom": "Andy",
+		"gagnant": false,
+		"nbPartieGagnees" :15,
+		"nbPartiePerdues" : 3,
+		"nbSerpentsTouches" : 3,
+		"nbEchellesTouchees" : 2		
+	}
+]
+		
+
+}

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" 
+    fx:controller="serpents_echelles.pages.parametres.VueParametres"
+    styleClass="conteneurPrincipal"
+    alignment="center">
+
+	<children>
+		<HBox alignment="center">
+			<Text textAlignment="CENTER"  styleClass="policeChoixJoueur" text="Choisir le nombre de joueur:"/>
+		</HBox>
+		
+		<HBox alignment="center">
+		       <ComboBox fx:id="nombreJoueur" />
+		</HBox>
+		
+		<HBox alignment="center">
+			<Text textAlignment="CENTER"  styleClass="autrePolice" text="Choisir le jouer qui commence: "/>		
+		</HBox>
+		
+		<HBox alignment="center">
+			
+			<Text textAlignment="CENTER" text="Joueur 1 "/>
+			<Button fx:id="caseBleu"/>
+			<CheckBox fx:id="checkBleu"/>
+		
+		</HBox>
+		
+		<HBox alignment="center">
+			
+			<Text textAlignment="CENTER" text="Joueur 2 "/>
+			<Button fx:id="caseVert"/>
+			<CheckBox fx:id="checkVert"/>
+		
+		</HBox>	
+		
+		<HBox alignment="center">
+			
+			<Text textAlignment="CENTER" text="Joueur 3 "/>
+			<Button fx:id="caseJaune"/>
+			<CheckBox fx:id="checkJaune"/>
+		
+		</HBox>	
+		
+		<HBox alignment="center">
+			
+			<Text textAlignment="CENTER" text="Joueur 4 "/>
+			<Button fx:id="caseRouge"/>
+			<CheckBox fx:id="checkRouge"/>
+		
+		</HBox>			
+			
+		<HBox alignment="center">
+			<Text textAlignment="CENTER" styleClass="autrePolice" text="Choisir combien de cases votre damier comportera : "/>	
+		</HBox>			
+		
+		<HBox alignment="center">	
+		       <ComboBox fx:id="choixTaille"/>
+		</HBox>
+
+		<Button fx:id="btnOk" text="Ok">
+				<font>
+					<Font size="24.0" />
+				</font>
+    </Button>
+	</children>
+</VBox>

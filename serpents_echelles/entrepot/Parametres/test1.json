@@ -1,0 +1,22 @@
+{
+
+	"nbJoueur": 2,
+	"joueurs": [
+		
+		{	
+			"nomJoueur":"Nicolas",
+			"couleur":"BLEU"	
+		},
+		
+		{
+			"nomJoueur":"Nassim",
+			"couleur":"VERT"
+		}
+		
+		],
+
+
+	"nbCases": 75,
+	
+	"quiCommence": "BLEU"
+}

@@ -1,0 +1,18 @@
+.conteneurPrincipal {
+    -fx-alignment: center;
+    -fx-padding: 20 20 20 20;
+    -fx-background-color: #268A44;
+    }
+   
+.policeChoixJoueur{
+
+	-fx-font-family: "Arial", "Helvetica", "Biome";
+ 	-fx-font-size: 25 "serif";
+}
+
+.autrePolice{
+
+	-fx-font-family: "Arial", "Helvetica", "Biome";
+	-fx-font-size: 18;
+} 
+

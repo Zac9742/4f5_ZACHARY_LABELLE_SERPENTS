@@ -1,0 +1,20 @@
+{
+	"nbPartieArchive" : 2,
+	"partieArchive": 
+	[
+		{
+			"id": 0,
+			"nomGagnant": "nicolas",
+			"couleur": "VERT",
+			"dureePartie": 156,
+			"nbCoups": 157
+		},
+		{
+			"id": 1,
+			"nomGagnant": "nassim",
+			"couleur": "BLEU",
+			"dureePartie": 12,
+			"nbCoups": 10
+		}
+	]
+}

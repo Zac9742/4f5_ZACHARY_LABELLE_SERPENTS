@@ -1,0 +1,39 @@
+.conteneurPrincipal {
+    -fx-alignment: center;
+    -fx-padding: 20 20 20 20;
+    -fx-background-color: #268A44;
+}
+
+.conteneurTitreJeu {
+    -fx-padding: 0 20 20 0;
+}
+
+.conteneurDe {
+    -fx-padding: 0 0 0 50;
+}
+
+.deActuel {
+    -fx-padding: 5px;
+    -fx-background-radius: 20px;
+    -fx-background-color: white;
+    -fx-border-radius: 20px;
+    -fx-border-color:black;
+    -fx-border-width: 2 2 2 2;
+}
+
+.deActuel:hover {
+    -fx-cursor: hand;
+    -fx-border-color: royalblue;
+}
+
+.carteInfoJoueur {
+    -fx-background-color: #FAFAFA;
+    -fx-background-radius: 10.0; 
+    -fx-padding: 8;
+    -fx-spacing: 20;
+    -fx-alignement: center-left;
+}
+
+.conteneurAvatar {
+    -fx-padding: 10px;
+}

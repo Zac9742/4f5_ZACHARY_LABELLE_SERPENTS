@@ -1,0 +1,63 @@
+{
+    "de": {
+        "nombre": 4
+    },
+    "idJoueurCourant": 2,
+    "joueurs": [
+        {
+            "id": 0,
+            "nom": "Allison",
+            "dernierLancer": 6,
+            "pion": {
+                "couleur": "BLEU",
+                "position": 4,
+                "nbEchelles": 2,
+                "nbSerpents": 3
+            }
+        },
+        {
+            "id": 1,
+            "nom": "Jose",
+            "dernierLancer": 1,
+            "pion": {
+                "couleur": "ROUGE",
+                "position": 9,
+                "nbEchelles": 3,
+                "nbSerpents": 1
+            }
+        },
+        {
+            "id": 2,
+            "nom": "Junior",
+            "dernierLancer": 2,
+            "pion": {
+                "couleur": "BLANC",
+                "position": 1,
+                "nbEchelles": 2,
+                "nbSerpents": 2
+            }
+        }
+    ],
+    "grille": {
+    "taille": 25,
+        "serpents": [
+            {
+                "indiceCaseDebut": 21,
+                "indiceCaseFin": 14,
+                "couleur": "MAUVE"
+            },
+            {
+                "indiceCaseDebut": 15,
+                "indiceCaseFin": 9,
+                "couleur": "BLEU"
+            }
+        ],
+        "echelles": [
+            {
+                "indiceCaseDebut": 13,
+                "indiceCaseFin": 23,
+                "couleur": "BLANC"
+            }
+        ]
+    }
+}
