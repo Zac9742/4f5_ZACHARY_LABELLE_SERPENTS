@@ -1,0 +1,84 @@
+{
+    "de": {
+        "nombre": 1
+    },
+    "idJoueurCourant": 0,
+    "joueurs": [
+        {
+            "id": 0,
+            "nom": "Éric",
+            "dernierLancer": 1,
+            "pion": {
+                "couleur": "BLEU",
+                "position": 0,
+                "nbEchelles": 0,
+                "nbSerpents": 0
+            }
+        },
+        {
+            "id": 1,
+            "nom": "Jonathan",
+            "dernierLancer": 1,
+            "pion": {
+                "couleur": "BLANC",
+                "position": 0,
+                "nbEchelles": 0,
+                "nbSerpents": 0
+            }
+        },
+        {
+            "id": 2,
+            "nom": "Alice",
+            "dernierLancer": 1,
+            "pion": {
+                "couleur": "VERT",
+                "position": 0,
+                "nbEchelles": 0,
+                "nbSerpents": 0
+            }
+        },
+        {
+            "id": 3,
+            "nom": "Mathieu",
+            "dernierLancer": 1,
+            "pion": {
+                "couleur": "ORANGE",
+                "position": 0,
+                "nbEchelles": 0,
+                "nbSerpents": 0
+            }
+        }
+    ],
+    "grille": {
+        "taille": 25,
+        "serpents": [
+            {
+                "indiceCaseDebut": 12,
+                "indiceCaseFin": 3,
+                "couleur": "ROUGE"
+            },
+            {
+                "indiceCaseDebut": 20,
+                "indiceCaseFin": 17,
+                "couleur": "MAUVE"
+            },
+            {
+                "indiceCaseDebut": 14,
+                "indiceCaseFin": 2,
+                "couleur": "JAUNE"
+            }
+        ],
+        "echelles": [
+            {
+                "indiceCaseDebut": 7,
+                "indiceCaseFin": 17,
+                "couleur": "NOIR"
+            },
+            {
+                "indiceCaseDebut": 18,
+                "indiceCaseFin": 22,
+                "couleur": "NOIR"
+            }
+        ]
+    }
+}

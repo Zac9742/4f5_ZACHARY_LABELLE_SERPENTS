@@ -16,13 +16,15 @@
 // along with aquiletour.  If not, see <https://www.gnu.org/licenses/>
 
 
-rootProject.name = '4f5_ZACHARY_LABELLE_SERPENTS'
-include "serpents_echelles"
+package serpents_echelles.client;
 
+import java.net.URI;
+import ntro.javafx.ClientWebSocketFX;
 
-// Tirée la librairie Ntro de GitHub
-sourceControl {
-    gitRepository("https://github.com/mathieu-bergeron/ntro4f5.git") {
-        producesModule("ca.ntro4f5:ntro")
-    }
+public class MonClientWebSocket extends ClientWebSocketFX {
+
+	public MonClientWebSocket(URI serverUri) {
+		super(serverUri);
+	}
+
 }

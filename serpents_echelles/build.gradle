@@ -36,3 +36,18 @@ task accueil (type:JavaExec) {
 	classpath = sourceSets.main.runtimeClasspath
 	jvmArgs('-Dfile.encoding=UTF-8', '-Duser.language=fr')
 }
+
+task serveur (type:JavaExec) {
+    dependsOn 'classes'
+    main = 'serpents_echelles.serveur.MonServeur'
+    classpath = sourceSets.main.runtimeClasspath
+    standardInput = System.in
+    jvmArgs('-Dfile.encoding=UTF-8', '-Duser.language=fr')
+}
+
+task partieReseau (type:JavaExec) {
+    dependsOn 'classes'
+    main = 'serpents_echelles.pages.partie_locale.PagePartieReseau'
+    classpath = sourceSets.main.runtimeClasspath
+    jvmArgs('-Dfile.encoding=UTF-8', '-Duser.language=fr')
+}

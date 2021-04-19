@@ -131,7 +131,8 @@ public class Partie<PLS extends PartieLectureSeule> extends Modele<PLS> implemen
      * joueur qui doit jouer.
      */
     public void changerProchainJoueur() {
-        if (this.idJoueurCourant == (this.joueurs.size() - 1)) {
+        
+    	if (this.idJoueurCourant == (this.joueurs.size() - 1)) {
             this.idJoueurCourant = 0;
         } else {
             this.idJoueurCourant++;

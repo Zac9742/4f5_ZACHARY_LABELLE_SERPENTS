@@ -1,0 +1,52 @@
+{
+    "de": {
+        "nombre": 5
+    },
+    "idJoueurCourant": 0,
+    "joueurs": [
+        {
+            "id": 0,
+            "nom": "Nicolas",
+            "dernierLancer": 1,
+            "pion": {
+                "couleur": "BLANC",
+                "position": 24,
+                "nbEchelles": 4,
+                "nbSerpents": 2
+            }
+        },
+        {
+            "id": 1,
+            "nom": "Karina",
+            "dernierLancer": 5,
+            "pion": {
+                "couleur": "JAUNE",
+                "position": 18,
+                "nbEchelles": 2,
+                "nbSerpents": 3
+            }
+        }
+    ],
+    "grille": {
+        "taille": 36,
+        "serpents": [
+            {
+                "indiceCaseDebut": 21,
+                "indiceCaseFin": 14,
+                "couleur": "VERT"
+            }
+        ],
+        "echelles": [
+            {
+                "indiceCaseDebut": 6,
+                "indiceCaseFin": 23,
+                "couleur": "NOIR"
+            },
+            {
+                "indiceCaseDebut": 15,
+                "indiceCaseFin": 32,
+                "couleur": "NOIR"
+            }
+        ]
+    }
+}
