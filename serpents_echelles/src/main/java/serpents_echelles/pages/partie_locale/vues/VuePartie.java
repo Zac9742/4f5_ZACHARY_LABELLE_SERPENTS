@@ -19,6 +19,7 @@ import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.Border;
 import javafx.scene.layout.BorderStroke;
 import javafx.scene.layout.BorderWidths;
+import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
@@ -71,7 +72,7 @@ public abstract class VuePartie implements Vue, Initializable {
     private VBox conteneurAvatar;
 
     private int nbCasesTotales;
-    private StackPane[][] casesPanes;
+    private FlowPane[][] casesPanes;
     private Rectangle[][] cases;
     private Button de;
 
@@ -251,7 +252,7 @@ public abstract class VuePartie implements Vue, Initializable {
 
         this.nbCasesTotales = (int) Math.pow(largeurGrille, 2);
 
-        this.casesPanes = new StackPane[largeurGrille][largeurGrille];
+        this.casesPanes = new FlowPane[largeurGrille][largeurGrille];
         this.cases = new Rectangle[largeurGrille][largeurGrille]; // Car c'est un carre
 
         for (int i = 0; i < largeurGrille; i++) {
@@ -333,7 +334,7 @@ public abstract class VuePartie implements Vue, Initializable {
         HBox ligne = new HBox();
 
         for (int i = 0; i < longeur; i++) {
-            StackPane _casePane = new StackPane();
+            FlowPane _casePane = new FlowPane();
             Rectangle _case = new Rectangle();
 
             _casePane.setAlignment(Pos.CENTER);
@@ -383,7 +384,7 @@ public abstract class VuePartie implements Vue, Initializable {
 
     public void enleverPion(int indiceColonne, int indiceRangee, CouleurPion couleurPion) {
         if (siIndicesValides(indiceColonne, indiceRangee)) {
-            StackPane cCourante = this.casesPanes[indiceColonne][indiceRangee];
+            FlowPane cCourante = this.casesPanes[indiceColonne][indiceRangee];
             cCourante.getChildren().remove(cCourante.lookup("#" + couleurPion.name())); // Enleve le pion en cherchant
                                                                                         // le
                                                                                         // node avec le id (nom de la
@@ -391,14 +392,15 @@ public abstract class VuePartie implements Vue, Initializable {
         }
     }
 
-    public void afficherPion(int indiceColonne, int indiceRangee, CouleurPion couleurPion) {
+    public void afficherPion(int indiceColonne, int indiceRangee, CouleurPion couleurPion, int nbJoueurs, int numeroJoueur) {
         J.appel(this);
 
         if (siIndicesValides(indiceColonne, indiceRangee)) {
-
-            StackPane _case = this.casesPanes[indiceColonne][indiceRangee];
+        	
+        	
+            FlowPane _case = this.casesPanes[indiceColonne][indiceRangee];
             String urlPion = "/assets/pion_";
-
+            
             switch (couleurPion) {
             case BLEU:
                 urlPion += "bleu.png";
@@ -423,11 +425,27 @@ public abstract class VuePartie implements Vue, Initializable {
                 urlPion += "blanc.png";
                 break;
             }
-
+            
+            /*
+            switch (nbJoueurs) {
+			case 2:
+				
+				switch (numeroJoueur) {
+				case 1:
+					
+					break;
+				}
+				break;
+				
+			}
+			*/
             J.valeurs(urlPion);
             Image pionImg = new Image(urlPion);
             ImageView pionImgView = new ImageView(pionImg);
             pionImgView.setId(couleurPion.name()); // Met le id du image view du pion pour le nom de la couleur.
+            
+            
+            
             _case.getChildren().add(pionImgView);
         }
     }

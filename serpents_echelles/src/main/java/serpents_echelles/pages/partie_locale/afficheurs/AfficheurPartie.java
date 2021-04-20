@@ -37,8 +37,12 @@ public class AfficheurPartie<PLS extends PartieLectureSeule, V extends VuePartie
         List<Joueur> joueurs = partieLectureSeule.getJoueurs();
 
         vue.verifierSiGagnant(joueurs);
-
+        
+        int numeroJoueur = 1;
+        int nbJoueurs = joueurs.size();
+        
         for (Joueur joueur : joueurs) {
+        	
             // Commence par enlever tous les pions des joueurs sur la grille en se basant
             // sur leur position precedente
             Pion pionJoueur = joueur.getPion();
@@ -56,7 +60,8 @@ public class AfficheurPartie<PLS extends PartieLectureSeule, V extends VuePartie
             int posX = positionEnGrille(posJoueurGrille, longeurGrille)[0];
             int posY = positionEnGrille(posJoueurGrille, longeurGrille)[1];
 
-            vue.afficherPion(posX, posY, couleurPionJoueur); // Afficher tous les pions...
+            vue.afficherPion(posX, posY, couleurPionJoueur, nbJoueurs, numeroJoueur); // Afficher tous les pions...
+            numeroJoueur++;
         }
 
         vue.rafraichirDe(partieLectureSeule.getDe().getNombre());

@@ -56,7 +56,7 @@ public class Partie<PLS extends PartieLectureSeule> extends Modele<PLS> implemen
     }
 
     /**
-     * Fonction qui va changer le numéro du dé pour afficher le bon sur la vue.
+     * Fonction qui va changer le num�ro du d� pour afficher le bon sur la vue.
      * 
      * @param num - de numéro du dé lancé.
      */
@@ -99,7 +99,7 @@ public class Partie<PLS extends PartieLectureSeule> extends Modele<PLS> implemen
              * e.printStackTrace(); }
              */
 
-            System.out.println(pCourant.getCouleur().name() + " a gagné!");
+            System.out.println(pCourant.getCouleur().name() + " a gagn�!");
         } else {
             pCourant.setPosition(nouvellePosition);
             jCourant.setDernierLancer(num);
