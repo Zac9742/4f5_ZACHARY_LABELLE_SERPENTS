@@ -38,7 +38,7 @@ public class PagePartieLocale extends Application {
 		J.appel(this);
 
 		ChargeurDeVue<VuePartieLocale> chargeur;
-		chargeur = new ChargeurDeVue<VuePartieLocale>(Constantes.CHEMIN_PARTIE_LOCALE_FXML);
+		chargeur = new ChargeurDeVue<VuePartieLocale>(Constantes.CHEMIN_PARTIE_LOCALE_FXML, Constantes.CHEMIN_PARTIE_LOCALE_CSS, Constantes.CHEMIN_CHAINES);
 
 		VuePartieLocale vue = chargeur.getVue();
 

@@ -2,11 +2,17 @@ plugins {
     id 'local-4f5-plugin'
 }
 
-task partie_locale (type: JavaExec) {
+task partieLocale (type: JavaExec) {
     dependsOn 'classes'
     main = 'serpents_echelles.pages.partie_locale.PagePartieLocale'
     classpath = sourceSets.main.runtimeClasspath
     jvmArgs('-Dfile.encoding=UTF-8', '-Duser.language=fr')
+}
+task partieLocaleEn (type: JavaExec) {
+    dependsOn 'classes'
+    main = 'serpents_echelles.pages.partie_locale.PagePartieLocale'
+    classpath = sourceSets.main.runtimeClasspath
+    jvmArgs('-Dfile.encoding=UTF-8', '-Duser.language=en')
 }
 
 task parametres(type:JavaExec){
@@ -51,3 +57,11 @@ task partieReseau (type:JavaExec) {
     classpath = sourceSets.main.runtimeClasspath
     jvmArgs('-Dfile.encoding=UTF-8', '-Duser.language=fr')
 }
+
+task partieReseauEn (type:JavaExec) {
+    dependsOn 'classes'
+    main = 'serpents_echelles.pages.partie_locale.PagePartieReseau'
+    classpath = sourceSets.main.runtimeClasspath
+    jvmArgs('-Dfile.encoding=UTF-8', '-Duser.language=en')
+}
+

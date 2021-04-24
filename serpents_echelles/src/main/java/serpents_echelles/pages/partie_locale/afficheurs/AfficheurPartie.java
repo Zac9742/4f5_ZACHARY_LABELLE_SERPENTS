@@ -16,12 +16,24 @@ public class AfficheurPartie<PLS extends PartieLectureSeule, V extends VuePartie
     public void initialiserAffichage(PLS partieLectureSeule, V vue) {
         J.appel(this);
 
-        int largeur = (int) Math.sqrt(partieLectureSeule.getGrille().getTaille());
+        int largeur = 5;
+        int hauteur = 0;
+        switch (partieLectureSeule.getGrille().getTaille()) {
+		case 25:
+			hauteur = 5;
+			break;
+		case 50:
+			hauteur = 10;
+			break;
+		case 75:
+			hauteur = 15;
+			break;
+		}
 
-        vue.creerGrille(largeur);
+        vue.creerGrille(largeur, hauteur);
 
-        vue.afficherModificateursPosition(partieLectureSeule.getGrille().getSerpents(), largeur);
-        vue.afficherModificateursPosition(partieLectureSeule.getGrille().getEchelles(), largeur);
+        vue.afficherModificateursPosition(partieLectureSeule.getGrille().getSerpents(), largeur, hauteur);
+        vue.afficherModificateursPosition(partieLectureSeule.getGrille().getEchelles(), largeur, hauteur);
         vue.initialiserDe(partieLectureSeule.getDe().getNombre());
     }
 
@@ -32,8 +44,20 @@ public class AfficheurPartie<PLS extends PartieLectureSeule, V extends VuePartie
         // Afficher les joueurs sur la grille
         // TODO: Handle error pour taille pas carree...
         int taileGrille = partieLectureSeule.getGrille().getTaille();
-        int longeurGrille = (int) Math.sqrt(taileGrille);
-
+        int longeurGrille = 5;
+        int hauteurGrille = 0;
+        switch (partieLectureSeule.getGrille().getTaille()) {
+		case 25:
+			hauteurGrille = 5;
+			break;
+		case 50:
+			hauteurGrille = 10;
+			break;
+		case 75:
+			hauteurGrille = 15;
+			break;
+		}
+        
         List<Joueur> joueurs = partieLectureSeule.getJoueurs();
 
         vue.verifierSiGagnant(joueurs);
@@ -47,7 +71,7 @@ public class AfficheurPartie<PLS extends PartieLectureSeule, V extends VuePartie
             // sur leur position precedente
             Pion pionJoueur = joueur.getPion();
             int posPrecJoueurGrille = pionJoueur.getPosPrecedente();
-            int posPrecX = positionEnGrille(posPrecJoueurGrille, longeurGrille)[0];
+            int posPrecX = positionEnGrille(posPrecJoueurGrille, hauteurGrille)[0];
             int posPrecY = positionEnGrille(posPrecJoueurGrille, longeurGrille)[1];
 
             vue.enleverPion(posPrecX, posPrecY, pionJoueur.getCouleur()); // enleve le pion ici, avec son id etant son
@@ -57,7 +81,7 @@ public class AfficheurPartie<PLS extends PartieLectureSeule, V extends VuePartie
 
             CouleurPion couleurPionJoueur = pionJoueur.getCouleur();
 
-            int posX = positionEnGrille(posJoueurGrille, longeurGrille)[0];
+            int posX = positionEnGrille(posJoueurGrille, hauteurGrille)[0];
             int posY = positionEnGrille(posJoueurGrille, longeurGrille)[1];
 
             vue.afficherPion(posX, posY, couleurPionJoueur, nbJoueurs, numeroJoueur); // Afficher tous les pions...

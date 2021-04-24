@@ -53,7 +53,7 @@ public class PagePartieReseau extends Application {
 		connecterAuServeur();
 		
 		ChargeurDeVue<VuePartieReseau> chargeur;
-		chargeur = new ChargeurDeVue<VuePartieReseau>(CHEMIN_PARTIE_RESEAU_FXML);
+		chargeur = new ChargeurDeVue<VuePartieReseau>(CHEMIN_PARTIE_RESEAU_FXML, Constantes.CHEMIN_CHAINES);
 
 		VuePartieReseau vue = chargeur.getVue();
 		

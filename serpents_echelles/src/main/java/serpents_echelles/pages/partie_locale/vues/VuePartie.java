@@ -18,6 +18,7 @@ import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.Border;
 import javafx.scene.layout.BorderStroke;
+import javafx.scene.layout.BorderStrokeStyle;
 import javafx.scene.layout.BorderWidths;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
@@ -73,10 +74,9 @@ public abstract class VuePartie implements Vue, Initializable {
 
     private int nbCasesTotales;
     private FlowPane[][] casesPanes;
-    private Rectangle[][] cases;
     private Button de;
 
-    private List<ImageView> modificateursPosistion;
+    private List<ImageView> modificateursPosition;
 
     private BrasserDePourEnvoi brasserDePourEnvoi;
     private AfficherStatsPourEnvoi afficherStatsFinPartie;
@@ -181,7 +181,7 @@ public abstract class VuePartie implements Vue, Initializable {
             if (joueur.getId() == joueurCourant) {
                 conteneur.getChildren().add(imageViewJoueurCourant);
             }
-
+            
             this.conteneurJoueurs.getChildren().add(conteneur);
         }
     }
@@ -222,10 +222,9 @@ public abstract class VuePartie implements Vue, Initializable {
         Pion pionJoueur = joueur.getPion();
 
         Label nomJoueurLbl = new Label(nomJoueur);
-        Label casesRestantesLbl = new Label(
-                "Nombre de cases restantes: " + Integer.toString(this.nbCasesTotales - pionJoueur.getPosition() - 1));
+        Label casesRestantesLbl = new Label("Nombre de cases restantes: " + Integer.toString(this.nbCasesTotales - pionJoueur.getPosition() - 1));
         Label dernierLancerLbl = new Label("Dernier lancer: " + Integer.toString(joueur.getDernierLancer()));
-        Label nbEchellesLbl = new Label("Nombre d'\u00E9chelles: " + Integer.toString(pionJoueur.getNbEchelles()));
+        Label nbEchellesLbl = new Label("Nombre d'échelles: " + Integer.toString(pionJoueur.getNbEchelles()));
         Label nbSerpentsLbl = new Label("Nombre de serpents: " + Integer.toString(pionJoueur.getNbSerpents()));
 
         nomJoueurLbl.setFont(new Font(20));
@@ -233,10 +232,10 @@ public abstract class VuePartie implements Vue, Initializable {
         dernierLancerLbl.setFont(new Font(14));
         nbEchellesLbl.setFont(new Font(14));
         nbSerpentsLbl.setFont(new Font(14));
-
+        
         this.conteneurInfoJoueur.getChildren().clear(); // est-ce mieux de faire ca ou une methode rafraichir et un
                                                         // initialiser...
-
+        
         this.conteneurAvatar.getChildren().clear();
         this.conteneurAvatar.getChildren().add(pionImgView);
         this.conteneurInfoJoueur.setAlignment(Pos.CENTER_LEFT);
@@ -247,31 +246,30 @@ public abstract class VuePartie implements Vue, Initializable {
         this.conteneurInfoJoueur.getChildren().add(nbSerpentsLbl);
     }
 
-    public void creerGrille(int largeurGrille) {
+    public void creerGrille(int largeurGrille, int hauteurGrille) {
         J.appel(this);
 
-        this.nbCasesTotales = (int) Math.pow(largeurGrille, 2);
+        this.nbCasesTotales = largeurGrille * hauteurGrille;
 
-        this.casesPanes = new FlowPane[largeurGrille][largeurGrille];
-        this.cases = new Rectangle[largeurGrille][largeurGrille]; // Car c'est un carre
+        this.casesPanes = new FlowPane[hauteurGrille][largeurGrille];
 
-        for (int i = 0; i < largeurGrille; i++) {
+        for (int i = 0; i < hauteurGrille; i++) {
             HBox ligneCourante = creerLigne(i, largeurGrille);
 
             this.conteneurGrille.getChildren().add(ligneCourante);
         }
     }
 
-    public void afficherModificateursPosition(List<? extends ModificateurPosition> modPos, int largeurGrille) {
+    public void afficherModificateursPosition(List<? extends ModificateurPosition> modPos, int largeurGrille, int hauteurGrille) {
         J.appel(this);
 
-        this.modificateursPosistion = new ArrayList<>();
+        this.modificateursPosition = new ArrayList<>();
 
         for (ModificateurPosition mod : modPos) {
             int debut = mod.getIndiceCaseDebut();
             int fin = mod.getIndiceCaseFin();
 
-            int[] coordonnesPointsLigne = this.transformePosEnCoordonnees(debut, fin, largeurGrille);
+            int[] coordonnesPointsLigne = this.transformePosEnCoordonnees(debut, fin, largeurGrille, hauteurGrille);
 
             // CrÃ©e une ligne qui relie deux cases.
             Line modLigne = new Line(coordonnesPointsLigne[0], coordonnesPointsLigne[1], coordonnesPointsLigne[2],
@@ -301,7 +299,7 @@ public abstract class VuePartie implements Vue, Initializable {
             modImgView.getTransforms().add(rotationSpeciale);
 
             // Ajoute le serpent au conteneur.
-            this.modificateursPosistion.add(modImgView);
+            this.modificateursPosition.add(modImgView);
             this.conteneurModPos.getChildren().add(modImgView);
         }
     }
@@ -315,16 +313,16 @@ public abstract class VuePartie implements Vue, Initializable {
      * @param largeurGrille - La largeur de la grille.
      * @return Un tableau de position en nombre.
      */
-    private int[] transformePosEnCoordonnees(int posCaseDebut, int posCaseFin, int largeurGrille) {
+    private int[] transformePosEnCoordonnees(int posCaseDebut, int posCaseFin, int largeurGrille, int hauteurGrille) {
         int[] pos = new int[4];
 
         pos[0] = ((posCaseDebut >= largeurGrille ? posCaseDebut % largeurGrille : posCaseDebut))
                 * Constantes.MIN_TAILLE_CASE + (Constantes.MIN_TAILLE_CASE / 2);
-        pos[1] = (largeurGrille - 1 - (posCaseDebut >= largeurGrille ? Math.floorDiv(posCaseDebut, largeurGrille) : 0))
+        pos[1] = (hauteurGrille - 1 - (posCaseDebut >= largeurGrille ? Math.floorDiv(posCaseDebut, largeurGrille) : 0))
                 * Constantes.MIN_TAILLE_CASE + (Constantes.MIN_TAILLE_CASE / 2);
         pos[2] = ((posCaseFin >= largeurGrille ? posCaseFin % largeurGrille : posCaseFin)) * Constantes.MIN_TAILLE_CASE
                 + (Constantes.MIN_TAILLE_CASE / 2);
-        pos[3] = (largeurGrille - 1 - (posCaseFin >= largeurGrille ? Math.floorDiv(posCaseFin, largeurGrille) : 0))
+        pos[3] = (hauteurGrille - 1 - (posCaseFin >= largeurGrille ? Math.floorDiv(posCaseFin, largeurGrille) : 0))
                 * Constantes.MIN_TAILLE_CASE + (Constantes.MIN_TAILLE_CASE / 2);
 
         return pos;
@@ -334,36 +332,35 @@ public abstract class VuePartie implements Vue, Initializable {
         HBox ligne = new HBox();
 
         for (int i = 0; i < longeur; i++) {
-            FlowPane _casePane = new FlowPane();
-            Rectangle _case = new Rectangle();
+            FlowPane _casePane = new FlowPane(5, 5);
 
             _casePane.setAlignment(Pos.CENTER);
-
-            _case.setWidth(Constantes.MIN_TAILLE_CASE);
-            _case.setHeight(Constantes.MIN_TAILLE_CASE);
-
+            _casePane.maxWidth(Constantes.MIN_TAILLE_CASE);
+            _casePane.maxHeight(Constantes.MIN_TAILLE_CASE);
+            _casePane.minWidth(Constantes.MIN_TAILLE_CASE);
+            _casePane.minHeight(Constantes.MIN_TAILLE_CASE);
+            _casePane.setPrefSize(Constantes.MIN_TAILLE_CASE, Constantes.MIN_TAILLE_CASE);
+            
+            
             if (indiceLigne % 2 == 0) {
                 if (i % 2 == 0) {
-                    _case.setFill(Color.web("#9DE1F6"));
+                    _casePane.setBackground(new Background(new BackgroundFill(Color.web("#9DE1F6"), null, null)));
                 } else {
-                    _case.setFill(Color.web("#DE6262"));
+                    _casePane.setBackground(new Background(new BackgroundFill(Color.web("#DE6262"), null, null)));
                 }
             } else {
                 if (i % 2 != 0) {
-                    _case.setFill(Color.web("#9DE1F6"));
+                    _casePane.setBackground(new Background(new BackgroundFill(Color.web("#9DE1F6"), null, null)));
                 } else {
-                    _case.setFill(Color.web("#DE6262"));
+                	_casePane.setBackground(new Background(new BackgroundFill(Color.web("#DE6262"), null, null)));
                 }
             }
-
-            _case.setStrokeType(StrokeType.INSIDE);
-            _case.setStroke(Color.BLACK);
-
+            _casePane.setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, null, new BorderWidths(1))));
+            
             this.casesPanes[indiceLigne][i] = _casePane;
-            this.cases[indiceLigne][i] = _case;
-
-            _casePane.getChildren().add(_case);
+            
             _casePane.toFront();
+            
             ligne.getChildren().add(_casePane);
         }
 
@@ -375,8 +372,8 @@ public abstract class VuePartie implements Vue, Initializable {
 
         boolean siValide = false;
 
-        if (indiceColonne >= 0 && indiceColonne < cases.length) {
-            siValide = indiceRangee >= 0 && indiceRangee < cases[indiceColonne].length;
+        if (indiceColonne >= 0 && indiceColonne < casesPanes.length) {
+            siValide = indiceRangee >= 0 && indiceRangee < casesPanes[indiceColonne].length;
         }
 
         return siValide;
